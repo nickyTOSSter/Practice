@@ -57,3 +57,27 @@ if let firstIs = europeanCapitals.first(where: {$0.hasSuffix("is")}) {
 
 let threeFirst = europeanCapitals.prefix(3)
 let withoutThreeFirst = europeanCapitals.dropFirst(3)
+
+let uppercased = europeanCapitals.map {
+  $0.uppercased()
+}
+
+let charactersSum = europeanCapitals.reduce(0, { x, y in
+  x + y.count
+})
+
+europeanCapitals.forEach {
+  print("\($0) from forEach")
+}
+
+europeanCapitals.sort()
+let reverseOrderedCapitals = europeanCapitals.sorted(by: {$0 > $1 })
+reverseOrderedCapitals
+
+europeanCapitals.shuffle()
+europeanCapitals.reverse()
+
+let someString = "From Russia with love"
+let fromRussiaWithLoveArr = someString.split(separator: " ")
+let arr = fromRussiaWithLoveArr.split(separator: "Russia")
+
