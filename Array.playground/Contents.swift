@@ -11,20 +11,27 @@ europeanCapitals += ["Oslo", "Stockholm"]
 
 europeanCapitals.insert("Copenhagen", at: 8)
 
-var firstElementByProperty = europeanCapitals.first
-var firstElementBySubscript = europeanCapitals[0]
-var secondAndFourthElements = europeanCapitals[1...3]
-var lastElementByProperty = europeanCapitals.last
+europeanCapitals.replaceSubrange(2...3, with: ["Paris", "Moscow"])
 
+if !europeanCapitals.isEmpty {
+  var firstElementByProperty = europeanCapitals.first
+  var firstElementBySubscript = europeanCapitals[0]
+  var secondAndFourthElements = europeanCapitals[1...3]
+  var lastElementByProperty = europeanCapitals.last
+}
 europeanCapitals.insert("Wroclaw", at: 9)
-var wrongElementIndex = europeanCapitals.firstIndex(of: "Wroclaw")
 
-if let wrongElementIndex = wrongElementIndex {
+if let wrongElementIndex = europeanCapitals.firstIndex(of: "Wroclaw") {
   var deletedWrongElement = europeanCapitals.remove(at: wrongElementIndex)
 }
 
 let removedFirstElement = europeanCapitals.removeFirst()
 let removedLastElement = europeanCapitals.removeLast()
+let saferRemoveLast = europeanCapitals.popLast()
+
+if europeanCapitals.count > 5 {
+  europeanCapitals.removeLast(3)
+}
 
 for capital in europeanCapitals {
   print(capital)
@@ -33,3 +40,20 @@ for capital in europeanCapitals {
 for (index, value) in europeanCapitals.enumerated() {
   print("Index: \(index), value: \(value)")
 }
+
+let randomCapital = europeanCapitals.randomElement()
+
+if !europeanCapitals.contains("Rome") {
+  europeanCapitals.append("Rome")
+}
+
+europeanCapitals.contains { elem in
+  elem.hasSuffix("is")
+}
+
+if let firstIs = europeanCapitals.first(where: {$0.hasSuffix("is")}) {
+  print(firstIs)
+}
+
+let threeFirst = europeanCapitals.prefix(3)
+let withoutThreeFirst = europeanCapitals.dropFirst(3)
