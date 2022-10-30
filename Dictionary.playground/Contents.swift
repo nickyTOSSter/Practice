@@ -1,3 +1,3 @@
 import UIKit
 
-var greeting = "Hello, playground"
+var someDict = [200: "Ok"]
